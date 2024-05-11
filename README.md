@@ -38,10 +38,11 @@ This guide will help you set up and run your Telegram bot using this template.
 
 **Configuration:**
 
-1. **Create a file named `config.py`** (outside of version control for security):
+1. **Create a file named `.env`** (outside of version control for security):
 
    ```python
-   BOT_TOKEN = "<YOUR_BOT_TOKEN>"
+   BOT_TOKEN="<YOUR_BOT_TOKEN>"
+   ADMINS=<ADMIN_ID>
    # (Optional) Add other configuration (e.g., database connection details)
    ```
 
@@ -49,12 +50,12 @@ This guide will help you set up and run your Telegram bot using this template.
 
 **Running the Bot Locally:**
 
-1. **Implement your bot's logic and handlers in `handlers/message_handlers.py` or create new handler files.**
+1. **Implement your bot's logic and handlers in `handlers/users/start.py` or create new handler files.**
 
-2. **Run the bot using `loader.py`:**
+2. **Run the bot using `app.py`:**
 
    ```bash
-   python loader.py
+   python app.py
    ```
 
    This will start the bot and listen for incoming Telegram messages.
@@ -63,12 +64,12 @@ This guide will help you set up and run your Telegram bot using this template.
 
 For deploying your bot to a production environment (e.g., Render), you'll need to adapt the approach. Consider these factors:
 
-  - **WSGI Server:** Depending on your platform, you might need a WSGI server like waitress (included in `loader.py`).
+  - **WSGI Server:** Depending on your platform, you might need a WSGI server like waitress (included in `app.py`).
   - **Environment Variables:** Store sensitive information (like bot tokens) as environment variables on your deployment platform.
 
 **Further Development:**
 
-- Customize this template by adding your specific bot's functionality in `handlers/message_handlers.py` or creating new handler files (e.g., `user_handlers.py`).
+- Customize this template by adding your specific bot's functionality in `handlers/users/start.py` or creating new handler files (e.g., `user_handlers.py`).
 - Refer to the aiogram documentation ([https://docs.aiogram.dev/](https://docs.aiogram.dev/)) for additional features and usage examples.
 
 **Contributing:**
